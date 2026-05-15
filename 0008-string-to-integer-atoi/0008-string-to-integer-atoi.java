@@ -1,6 +1,7 @@
 class Solution {
     public int myAtoi(String s) {
-
+       
+         //usin loop time complexity -o(n)
         long num =0;
         int signed =1;
         int i =0;
@@ -33,7 +34,11 @@ class Solution {
             }
         }
         return (int) num*signed;
-        }
         
+      
         
+
+       
+    
+     }
     }
