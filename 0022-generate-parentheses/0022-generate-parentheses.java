@@ -9,10 +9,10 @@ class Solution {
             st.add(s);
             return ;
         }
-        if(open <= n){
+        if(open < n){
             solve(n,open+1 ,close,st,s+"(");
         }
-        if(close< open && close <= n){
+        if(close< open){
             solve(n,open,close+1,st,s+")");
         }
         return ;
