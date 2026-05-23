@@ -4,20 +4,20 @@ class Solution {
             "pqrs", "tuv", "wxyz"};
     public List<String> letterCombinations(String digits) {
         List<String> ans= new ArrayList<>();
-        solve(0,digits,ans,"");
+        solve(0,digits,ans,new StringBuilder());
         return ans;
         
     }
-    public void solve(int index,String digits,List<String> ans,String current){
+    public void solve(int index,String digits,List<String> ans,StringBuilder current){
         if(index == digits.length()){
-            ans.add(current);
+            ans.add(current.toString());
             return;
         }
         String letter=map[digits.charAt(index) - '0'];
           for (int i = 0;i < letter.length(); i++) {
-           current= current + letter.charAt(i);
+            current.append(letter.charAt(i));
             solve(index+1,digits,ans,current);
-            current= current.substring(0,current.length()-1);
+             current.deleteCharAt(current.length()-1);
           }
     }
 }
