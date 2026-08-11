@@ -22,27 +22,27 @@ class Solution {
        
         Queue<TreeNode> queue=new LinkedList<>();
         queue.add(root);
-        queue.add(null);
+        
         List<Integer> currentList=new ArrayList<>();
         while(!queue.isEmpty()){
-            TreeNode current=queue.remove();
-            if(current == null){
-                ans.add(currentList);
-                currentList=new ArrayList<>();
-                if(!queue.isEmpty()){
-                   queue.add(null);
-                }
-            }else{
-                currentList.add(current.val);
-                if(current.left != null){
+            int size=queue.size();
+            List<Integer> level =new ArrayList<>();
+            for(int i =0;i< size;i++){
+                TreeNode current=queue.remove();
+                level.add(current.val);
+                if (current.left != null) {
                     queue.add(current.left);
                 }
-                  if(current.right != null){
+
+                if (current.right != null) {
                     queue.add(current.right);
                 }
+
             }
+            ans.add(level);
         }
-        return ans;
+           return ans; 
+       
         
     }
 }
